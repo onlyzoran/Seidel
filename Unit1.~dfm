@@ -81,6 +81,7 @@ object Form1: TForm1
         Height = 25
         Caption = #1054#1095#1080#1089#1090#1080#1090#1100
         TabOrder = 3
+        OnClick = Button2Click
       end
       object Button3: TButton
         Left = 912
@@ -154,6 +155,8 @@ object Form1: TForm1
         Top = 160
         Width = 633
         Height = 305
+        RowCount = 1
+        FixedRows = 0
         TabOrder = 3
       end
       object Memo1: TMemo
@@ -163,7 +166,7 @@ object Form1: TForm1
         Height = 153
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
+        Font.Height = -13
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
