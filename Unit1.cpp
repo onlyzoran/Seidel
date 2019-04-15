@@ -110,10 +110,11 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
                 ay[i] = StrToFloat(StringGrid4->Cells[0][i]);
         }
         double b[20][20];
+        Memo1->Lines->Clear();
         for(int i = 0; i < n; i++)
         {
                 b[i][0] = ay[i] / ax[i][i];
-                String str = "x" + (IntToStr)(i + 1) + " = " + b[i][0];
+                String str = "x" + (IntToStr)(i + 1) + " = " + FloatToStrF(b[i][0], ffGeneral, 4, 2);
                 for(int j = 0; j < n; j++)
                 {
                         if(i != j)
@@ -123,7 +124,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
                                 {
                                         str = str + "+";
                                 }
-                                str = str + b[i][j + 1] + "x" + (j + 1);
+                                str = str + FloatToStrF(b[i][j + 1], ffGeneral, 4, 2) + "x" + (j + 1);
                         }
                 }
                 Memo1->Lines->Add(str);
@@ -135,16 +136,17 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
                 x[i] = 0;
         }
         StringGrid5->ColCount = n * 2 + 1;
-        StringGrid5->RowCount = 10;
+        StringGrid5->RowCount = 1;
         for(int i = 1; i <= n; i++)
         {
                 StringGrid5->Cells[i][0] = "x" + IntToStr(i);
                 StringGrid5->Cells[i + n][0] = "e" + IntToStr(i);
         }
-        bool notend = true;
         double e[20][20];
-        for(int ni = 1; notend == true; ni++)
+        int notend = 0;
+        for(int ni = 1; notend < n; ni++)
         {
+                StringGrid5->RowCount++;
                 StringGrid5->Cells[0][ni] = ni;
                 for(int i = 0; i < n; i++)
                 {
@@ -160,13 +162,14 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
                 }
                 if(ni > 1)
                 {
+                        notend = 0;
                         for(int i = 0; i < n; i++)
                         {
                                 e[i][ni] = StringGrid5->Cells[i + 1][ni] - StringGrid5->Cells[i + 1][ni - 1];
                                 StringGrid5->Cells[i + n + 1][ni] = StringGrid5->Cells[i + 1][ni] - StringGrid5->Cells[i + 1][ni - 1];
                                 if(fabs(StrToFloat(StringGrid5->Cells[i + n + 1][ni])) <= StrToFloat(Edit1->Text))
                                 {
-                                        notend = false;
+                                        notend++;
                                         Edit2->Text = ni;
                                 }
                         }

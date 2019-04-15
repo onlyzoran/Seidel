@@ -19,9 +19,9 @@ object Form1: TForm1
     Top = 0
     Width = 1000
     Height = 500
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     PopupMenu = PopupMenu1
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1056#1077#1096#1077#1085#1080#1077
@@ -154,6 +154,8 @@ object Form1: TForm1
         Top = 160
         Width = 633
         Height = 305
+        RowCount = 1
+        FixedRows = 0
         TabOrder = 3
       end
       object Memo1: TMemo
@@ -163,7 +165,7 @@ object Form1: TForm1
         Height = 153
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
+        Font.Height = -13
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
