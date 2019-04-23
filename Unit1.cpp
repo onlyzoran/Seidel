@@ -127,7 +127,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	        for(int i = 0; i < n; i++)
 	        {
 	                b[i][0] = ay[i] / ax[i][i];
-	                String str = "x" + (IntToStr)(i + 1) + " = " + FloatToStrF(b[i][0], ffGeneral, 4, 2);
+	                String str = "x" + (IntToStr)(i + 1) + " = " + FloatToStrF(b[i][0], ffGeneral, 4, 0);
 	                for(int j = 0; j < n; j++)
 	                {
 	                        if(i != j)
@@ -137,7 +137,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	                                {
 	                                        str = str + "+";
 	                                }
-	                                str = str + FloatToStrF(b[i][j + 1], ffGeneral, 4, 2) + "x" + (j + 1);
+	                                str = str + FloatToStrF(b[i][j + 1], ffGeneral, 4, 0) + "x" + (j + 1);
 	                        }
 	                }
 	                Memo1->Lines->Add(str);
@@ -157,7 +157,8 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	        }
 	        double e[20][20];
 	        int notend = 0;
-	        for(int ni = 1; notend < n; ni++)
+                int ni;
+	        for(ni = 1; notend < n; ni++)
 	        {
 	                StringGrid5->RowCount++;
 	                StringGrid5->Cells[0][ni] = ni;
@@ -187,6 +188,15 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	                        }
 	                }
 	        }
+                StringGrid6->ColCount = n;
+                for(int i = 1; i <= n; i++)
+	        {
+	                StringGrid6->Cells[i - 1][0] = "x" + IntToStr(i);
+	        }
+                for(int i = 0; i < n; i++)
+	        {
+	                StringGrid6->Cells[i][1] = StringGrid5->Cells[i + 1][ni - 1];
+	        }
         }
         else
         {
@@ -199,7 +209,6 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
         Form1->Close();
 }
 //---------------------------------------------------------------------------
-
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
         for(int i = 0; i < CSpinEdit1->Value; i++)
