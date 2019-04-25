@@ -157,7 +157,8 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	        }
 	        double e[20][20];
 	        int notend = 0;
-	        for(int ni = 1; notend < n; ni++)
+                int ni;
+	        for(ni = 1; notend < n; ni++)
 	        {
 	                StringGrid5->RowCount++;
 	                StringGrid5->Cells[0][ni] = ni;
@@ -186,6 +187,15 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	                                }
 	                        }
 	                }
+	        }
+                StringGrid6->ColCount = n;
+                for(int i = 1; i <= n; i++)
+	        {
+	                StringGrid6->Cells[i - 1][0] = "x" + IntToStr(i);
+	        }
+                for(int i = 0; i < n; i++)
+	        {
+	                StringGrid6->Cells[i][1] = StringGrid5->Cells[i + 1][ni - 1];
 	        }
         }
         else

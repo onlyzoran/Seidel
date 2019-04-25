@@ -19,9 +19,9 @@ object Form1: TForm1
     Top = 0
     Width = 1000
     Height = 500
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     PopupMenu = PopupMenu1
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1056#1077#1096#1077#1085#1080#1077

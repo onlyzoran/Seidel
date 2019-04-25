@@ -36,6 +36,13 @@ __published:	// IDE-managed Components
         TEdit *Edit2;
         TLabel *Label3;
         TGroupBox *GroupBox1;
+        TGroupBox *GroupBox2;
+        TStringGrid *StringGrid6;
+        TGroupBox *GroupBox3;
+        TGroupBox *GroupBox4;
+        TGroupBox *GroupBox5;
+        TGroupBox *GroupBox6;
+        TGroupBox *GroupBox7;
         void __fastcall FormCreate(TObject *Sender);
         void __fastcall CSpinEdit1Change(TObject *Sender);
         void __fastcall N11Click(TObject *Sender);

@@ -104,17 +104,35 @@ object Form1: TForm1
         Left = 0
         Top = 32
         Width = 993
-        Height = 441
+        Height = 345
         Caption = #1057#1080#1089#1090#1077#1084#1072
         TabOrder = 6
         object StringGrid1: TStringGrid
           Left = 8
           Top = 16
           Width = 977
-          Height = 417
+          Height = 321
           ColCount = 4
           FixedCols = 0
           Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing]
+          TabOrder = 0
+        end
+      end
+      object GroupBox2: TGroupBox
+        Left = 0
+        Top = 384
+        Width = 993
+        Height = 81
+        Caption = #1056#1077#1079#1091#1083#1100#1090#1072#1090
+        TabOrder = 7
+        object StringGrid6: TStringGrid
+          Left = 8
+          Top = 16
+          Width = 977
+          Height = 57
+          ColCount = 3
+          FixedCols = 0
+          RowCount = 2
           TabOrder = 0
         end
       end
@@ -122,57 +140,97 @@ object Form1: TForm1
     object TabSheet2: TTabSheet
       Caption = #1055#1086#1076#1088#1086#1073#1085#1086
       ImageIndex = 1
-      object StringGrid2: TStringGrid
+      object GroupBox3: TGroupBox
         Left = 0
         Top = 0
-        Width = 337
+        Width = 345
         Height = 153
-        FixedCols = 0
-        FixedRows = 0
+        Caption = 'AT'
         TabOrder = 0
+        object StringGrid2: TStringGrid
+          Left = 8
+          Top = 16
+          Width = 329
+          Height = 129
+          FixedCols = 0
+          FixedRows = 0
+          TabOrder = 0
+        end
       end
-      object StringGrid3: TStringGrid
+      object GroupBox4: TGroupBox
         Left = 0
         Top = 160
-        Width = 337
+        Width = 345
         Height = 145
-        FixedCols = 0
-        FixedRows = 0
+        Caption = 'ATA'
         TabOrder = 1
+        object StringGrid3: TStringGrid
+          Left = 8
+          Top = 16
+          Width = 329
+          Height = 121
+          FixedCols = 0
+          FixedRows = 0
+          TabOrder = 0
+        end
       end
-      object StringGrid4: TStringGrid
+      object GroupBox5: TGroupBox
         Left = 0
         Top = 312
-        Width = 97
+        Width = 345
         Height = 153
-        ColCount = 1
-        FixedCols = 0
-        FixedRows = 0
+        Caption = 'ATb'
         TabOrder = 2
+        object StringGrid4: TStringGrid
+          Left = 8
+          Top = 16
+          Width = 97
+          Height = 129
+          ColCount = 1
+          FixedCols = 0
+          FixedRows = 0
+          TabOrder = 0
+        end
       end
-      object StringGrid5: TStringGrid
-        Left = 344
+      object GroupBox6: TGroupBox
+        Left = 352
+        Top = 0
+        Width = 633
+        Height = 153
+        Caption = #1055#1088#1080#1074#1077#1076#1077#1085#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
+        TabOrder = 3
+        object Memo1: TMemo
+          Left = 8
+          Top = 16
+          Width = 617
+          Height = 129
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          ScrollBars = ssVertical
+          TabOrder = 0
+        end
+      end
+      object GroupBox7: TGroupBox
+        Left = 352
         Top = 160
         Width = 633
         Height = 305
-        RowCount = 1
-        FixedRows = 0
-        TabOrder = 3
-      end
-      object Memo1: TMemo
-        Left = 344
-        Top = 0
-        Width = 641
-        Height = 153
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        ReadOnly = True
-        ScrollBars = ssVertical
+        Caption = #1048#1090#1077#1088#1072#1094#1080#1080
         TabOrder = 4
+        object StringGrid5: TStringGrid
+          Left = 8
+          Top = 16
+          Width = 617
+          Height = 281
+          RowCount = 1
+          FixedRows = 0
+          TabOrder = 0
+        end
       end
     end
   end

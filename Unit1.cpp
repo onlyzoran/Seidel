@@ -25,6 +25,7 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
                 StringGrid1->Cells[i][0] = "x" + IntToStr(i + 1);
         }
         StringGrid1->Cells[StringGrid1->ColCount - 1][0] = "y";
+        PageControl1->ActivePageIndex = 0;
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::CSpinEdit1Change(TObject *Sender)
@@ -93,26 +94,26 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	        {
 	                for(int k = 0; k < StringGrid3->ColCount; k++)
 	                {
-	                        double s = 0;
+	                        float s = 0;
 	                        for(int j = 0; j < StringGrid3->ColCount; j++)
 	                        {
 	                                s = s + StringGrid2->Cells[j][i] * StringGrid1->Cells[k][j + 1];
 	                        }
-	                        StringGrid3->Cells[k][i] = s;
+	                        StringGrid3->Cells[k][i] = FloatToStrF(s, ffGeneral, 4, 2);
 	                }
 	        }
 	        StringGrid4->RowCount = StringGrid3->RowCount;
 	        for(int i = 0; i < StringGrid4->RowCount; i++)
 	        {
-	                double s = 0;
+	                float s = 0;
 	                for(int j = 0; j < StringGrid3->ColCount; j++)
 	                {
 	                        s = s + StringGrid2->Cells[j][i] * StringGrid1->Cells[StringGrid1->ColCount - 1][j + 1];
 	                }
-	                StringGrid4->Cells[0][i] = s;
+	                StringGrid4->Cells[0][i] = FloatToStrF(s, ffGeneral, 4, 2);
 	        }
-	        double ax[20][20];
-	        double ay[20];
+	        float ax[20][20];
+	        float ay[20];
 	        int n = StringGrid3->RowCount;
 	        for(int i = 0; i < n; i++)
 	        {
@@ -122,7 +123,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	                }
 	                ay[i] = StrToFloat(StringGrid4->Cells[0][i]);
 	        }
-	        double b[20][20];
+	        float b[20][20];
 	        Memo1->Lines->Clear();
 	        for(int i = 0; i < n; i++)
 	        {
@@ -143,7 +144,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	                Memo1->Lines->Add(str);
 	                str = "";
 	        }
-	        double x[20];
+	        float x[20];
 	        for(int i = 0; i < 20; i++)
 	        {
 	                x[i] = 0;
@@ -155,7 +156,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	                StringGrid5->Cells[i][0] = "x" + IntToStr(i);
 	                StringGrid5->Cells[i + n][0] = "e" + IntToStr(i);
 	        }
-	        double e[20][20];
+	        float e[20][20];
 	        int notend = 0;
                 int ni;
 	        for(ni = 1; notend < n; ni++)
@@ -172,14 +173,14 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	                                        x[i] = x[i] - b[i][j + 1] * x[j];
 	                                }
 	                        }
-	                        StringGrid5->Cells[i + 1][ni] = x[i];
+	                        StringGrid5->Cells[i + 1][ni] = FloatToStrF(x[i], ffGeneral, 4, 2);
 	                }
 	                if(ni > 1)
 	                {
 	                        notend = 0;
 	                        for(int i = 0; i < n; i++)
 	                        {
-	                                StringGrid5->Cells[i + n + 1][ni] = StringGrid5->Cells[i + 1][ni] - StringGrid5->Cells[i + 1][ni - 1];
+	                                StringGrid5->Cells[i + n + 1][ni] = FloatToStrF(StrToFloat(StringGrid5->Cells[i + 1][ni] - StringGrid5->Cells[i + 1][ni - 1]), ffGeneral, 8, 6);
 	                                if(fabs(StrToFloat(StringGrid5->Cells[i + n + 1][ni])) <= StrToFloat(Edit1->Text))
 	                                {
 	                                        notend++;
@@ -188,6 +189,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	                        }
 	                }
 	        }
+                StringGrid5->FixedRows = 1;
                 StringGrid6->ColCount = n;
                 for(int i = 1; i <= n; i++)
 	        {
@@ -219,10 +221,13 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
                 StringGrid4->Rows[i]->Clear();
         }
         Memo1->Clear();
-        for(int i = 1; i <= StringGrid5->RowCount; i++)
+        for(int i = 0; i <= StringGrid5->RowCount; i++)
         {
                 StringGrid5->Rows[i]->Clear();
         }
+        StringGrid6->Rows[0]->Clear();
+        StringGrid6->Rows[1]->Clear();
+        Edit2->Text = "";
 }
 //---------------------------------------------------------------------------
 
